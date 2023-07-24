@@ -12,4 +12,8 @@ export class Node {
     getSocket() {
         return this.socket;
     }
+
+    getID() {
+        return this.id;
+    }
 }

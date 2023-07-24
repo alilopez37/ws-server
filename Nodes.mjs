@@ -20,8 +20,8 @@ export class Nodes {
   }
 
   disconectNode (id) {
-
   }
+
   toString(){
     return this.listNodes.map( node => node.name)
   }

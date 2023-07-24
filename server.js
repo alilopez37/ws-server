@@ -13,16 +13,20 @@ io.on("connection", (socket) => {
     socket.handshake.query.name || 'anonimo', 
     socket))
 
-  console.log("=> ",nodes.toString())
+  signale.info ("Nodos conectados: ",nodes.toString())
 
-  socket.on("msn", (data)=> {
+  //Estructura de data = {source, target, task}
+  socket.on("bridge", (data)=> {
     let node = nodes.getNode(data.target);
     if (node)
       node.getSocket().emit("msn", data.task)
     else
-      signale.error("Target no se encuentra")
+      signale.error(`[${data.source}]. ${data.target} no se encuentra"`)
   })
+
+  //Falta la función para eliminar los sockets que se desconecten del WS Server
 });
+
 
 
 

@@ -7,7 +7,7 @@ const socket = io("ws://localhost:3000", {
   }
 });
 
-socket.emit("msn",{source:'kelly', target: 'alilopez', task: 'Imprimir'})
+socket.emit("bridge",{source:'kelly', target: 'alilopez', task: 'Imprimir'})
 
 socket.on ("msn", data => {
   console.log("[kelly] Datos recibidos: ", data)
